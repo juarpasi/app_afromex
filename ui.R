@@ -1,33 +1,44 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
+library(plotly)
+
+# read municipal data
+mx_mun <- sf::read_sf('data/shp/municipios/muni_2018gw.shp')
+
+# make options
+
+opts <-
+  mx_mun$NOM_ENT |>
+  unique()
 
 # Define UI for application that draws a histogram
 fluidPage(
-
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
-    # Sidebar with a slider input for number of bins
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-            plotOutput("distPlot")
-        )
+  
+  tags$head(
+    tags$link(rel='stylesheet', href='styles.css')
+  ),
+  
+  titlePanel("Mexicanos que se identifican como afrodescendientes"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      
+      selectInput("state",
+                  "Estado",
+                  choices = opts,
+                  selected = 'Ciudad de México'),
+      
+      selectInput('metric',
+                  'Representación',
+                  choices = c('Población total','Población relativa')),
+      
+      actionButton("get_set_submitbutton", "Crear mapa", class = "btn btn-primary")
+      
+      ),
+    
+    mainPanel(
+      plotOutput("state_map",
+                 height = '700px')
+      )
+    
     )
 )
