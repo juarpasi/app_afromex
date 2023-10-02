@@ -10,35 +10,34 @@ opts <-
   mx_mun$NOM_ENT |>
   unique()
 
-# Define UI for application that draws a histogram
-fluidPage(
+# Read the html file
+htmlTemplate(
+  'www/index.html',
+  selection1 = selectInput("state",
+                          "Estado",
+                          choices = opts,
+                          selected = 'Ciudad de México'),
+  selection2 = selectInput('metric',
+                           'Representación',
+                           choices = c('Población relativa','Población total')),
   
-  tags$head(
-    tags$link(rel='stylesheet', href='styles.css')
-  ),
+  button = actionButton("get_set_submitbutton", "Obtener mapa", class = "btn btn-primary"),
+  mapplot = plotOutput("state_map",
+                       height = '700px'),
   
-  titlePanel("Mexicanos que se identifican como afrodescendientes"),
+  #pieplot = plotOutput("state_pie")
+  pieplot = plotOutput('state_pie'),
   
-  sidebarLayout(
-    sidebarPanel(
-      
-      selectInput("state",
-                  "Estado",
-                  choices = opts,
-                  selected = 'Ciudad de México'),
-      
-      selectInput('metric',
-                  'Representación',
-                  choices = c('Población total','Población relativa')),
-      
-      actionButton("get_set_submitbutton", "Crear mapa", class = "btn btn-primary")
-      
-      ),
+  statesum = uiOutput(
+    'state_summary',
+    class = 'state_summary_container'
+    ),
+  
+  municipal_data = conditionalPanel(
+    condition = "output.map_status == true",
     
-    mainPanel(
-      plotOutput("state_map",
-                 height = '700px')
-      )
-    
-    )
-)
+    uiOutput('selection_town.UI')
+    ),
+  
+  mucipio_tbl = tableOutput('df_municipio')
+  )
