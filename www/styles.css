@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #141414;
+}
+
+main{
+    text-align: center;
+    margin-top: 50px;
+    background-color: #003459;
+}
+
+h1{
+    color: #d9d9d9;
+    font-weight: bold;
+    width: 75%;
+    margin: auto;
+    padding: 30;
+    word-wrap: break-word;
+    font-size: 45px;
+    text-align: center;
+}
+
+h2{
+    color: #d9d9d9;
+    font-style: italic;
+    font-size: 28px;
+    width: 100%;
+    margin: auto;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+header{
+    width: 100%;
+    height: 10%;
+    background-color: cadetblue;
+}
+
+.container-fluid p{
+    color: white;
+    font-size: 18px;
+    width: 85%;
+    margin: auto;
+}
+
+.col-sm-4 h3{
+    color: #d9d9d9;
+}
+
+a{
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.well{
+    background-color: #3c6e71;
+}
+
+.control-label{
+    color: white;
+}
+
+.btn-primary{
+    background-color: #284b63;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.state_summary_container{
+    max-width: 45%;
+    margin-left: 1px;
+    margin-right: 1px;
+    color: #d9d9d9;
+    font-weight: bold;
+    display:inline-block;
+    justify-content: left;
+    text-align: left;
+    font-size: 20px;
+}
+
+.population_text, .state_text{
+    font-size: 30px;
+}
+
+.population_text{
+    color: #44c1d4;
+}
+
+.state_text{
+    color: #d49144;
+}
+
+#df_municipio table{
+    color: #cad444;
+}
+
+#state_map{
+    max-height: 500px;
+}
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box #state_pie {
+    /* max-width: 30%; 
+    min-width: 100px;
+    margin: auto;
+    
+    margin-top: 10px;*/
+    max-width: 30%;
+    max-height: 200px;
+    margin-left: 30px;
+    margin-right: 100px;
+    color: gray;
+    display:inline-block;
+    justify-content: right;
+    text-align: right;
+    /* visual */
+    /*border: 0.1rem solid black;*/
+    /* border: none; */
+    /*border-radius: 10px;*/
+}
+
+.variant {
+    background-color: #ebdb4c;
+    font-weight: bold;
+}
+
+.fw {
+    background-color: #eb634c;
+}
+
+.rv {
+    background-color: #4c89eb;
+}

@@ -1,0 +1,47 @@
+<html>
+  <head>
+    {{ headContent() }}
+    {{ bootstrapLib() }}
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Afrodescendientes mexicanos </h1>
+    <h2>¿En dónde se encuentran?</h2>
+    <div class="container-fluid">
+      <hr>
+      <p>Las primeras poblaciones africanas llegaron a la Nueva españa como esclavos.
+        Migraciones posteriores se dieron por la abolición de la esclavitud del reciente estado mexicano.
+        La población africana se dispersó por todo el territorio de lo que actualmente es México.
+        Hoy en día, los estados con mayor población de ascendencia africana son Guerrero, Oaxaca y Veracruz.</p>
+      <br>
+      <p>Esta página te permite consultar la distribución municipal de las personas que se consideran afrodescendientes por estado.
+      Los datos fueron obtenidos del <a href="https://www.inegi.org.mx/datosabiertos/">censo de INEGI 2020</a>.</p>
+      <hr>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Selecciona otro estado</h3>
+        
+          {{selection1}}
+
+          {{selection2}}
+
+          {{button}}
+
+        </div>
+        <div class="col-sm-8">
+
+          <div class="box", id="pie">
+            {{statesum}}
+            {{pieplot}}
+          </div>
+
+          {{ mapplot }}
+
+          {{municipal_data}}
+
+          {{mucipio_tbl}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
